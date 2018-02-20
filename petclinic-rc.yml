@@ -1,0 +1,22 @@
+# replication controller config
+apiVersion: v1
+kind: ReplicationController
+metadata: 
+  name: petclinic-new-rc
+spec:
+  replicas: 5 
+  selector: 
+    app: petclinic
+
+# pod configuration (selector app matches the app mentioned in the pod config)
+  template:
+    metadata:
+      labels:
+        app: petclinic
+    spec:
+      containers:
+      - name: petclinic-pod
+        image: ganeshhp/maven-petclinic-project:latest
+        ports:
+        - containerPort: 8080
+ 
