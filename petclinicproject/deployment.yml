@@ -13,9 +13,7 @@ spec:
   template:
     metadata:
       labels:
-        app: petclinic
         env: prod
-        version: 1.0.1
     spec:
       containers:
       - name: petclinic-pod

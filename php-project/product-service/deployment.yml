@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: hello-deploy
+  name: product-service-deploy
 spec:
   replicas: 5
   minReadySeconds: 2
@@ -13,13 +13,11 @@ spec:
   template:
     metadata:
       labels:
-        app: hello-apache
         env: prod
-        version: 1.0.1
     spec:
       containers:
-      - name: hello-pod
-        image: httpd:latest
+      - name: product-service 
+        image: ganeshhp/php_project:latest
         ports:
         - containerPort: 80
 

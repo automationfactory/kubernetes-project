@@ -1,0 +1,16 @@
+# declare a service object
+apiVersion: v1
+kind: Service
+metadata:
+  name: website-service
+  labels:
+    version: 1.0.1
+# define and configure service to acces 80 port
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    nodePort: 32402
+    protocol: TCP
+  selector:
+    version: 1.0.1
